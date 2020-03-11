@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JunYeong's Blog</title>
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+</head>
+<body>
+    <header>
+        <a href="/"><div class="logo">Jun.log</div></a>
+        {% if user.is_authenticated %}
+        <a href="{% url 'post_new' %}"><div class="menu">글쓰기</div></a>
+        {% endif %}
+    </header>
+
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <footer> just for study :) </footer>
+</body>
+</html>
